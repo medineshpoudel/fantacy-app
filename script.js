@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
       case 5:
         playerElement.style.left = "50%";
-        playerElement.style.top = "90%";
+        playerElement.style.top = "80%";
         break;
     }
 
