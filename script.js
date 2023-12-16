@@ -59,7 +59,20 @@ document.addEventListener("DOMContentLoaded", function () {
   function createPlayerElement(name, position) {
     const playerElement = document.createElement("div");
     playerElement.className = "player";
-    playerElement.textContent = name;
+
+    // Get the initials of the first and last names
+    const initials = name
+      .split(" ")
+      .map((part) => part.charAt(0).toUpperCase())
+      .join("");
+
+    playerElement.textContent = initials;
+
+    // Create a div for the full name below the circle
+    const fullNameDiv = document.createElement("div");
+    fullNameDiv.textContent = name.slice(0, -1);
+    fullNameDiv.className = "full-name";
+    playerElement.appendChild(fullNameDiv);
 
     const deleteBtn = document.createElement("button");
     deleteBtn.className = "delete-btn";
@@ -76,6 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     playerElement.appendChild(deleteBtn);
+
+    // Add the player element to the field
+    footballField.appendChild(playerElement);
 
     switch (position) {
       case 1:
